@@ -2,10 +2,20 @@ from flask import Flask
 
 app = Flask(__name__)
 
+stores = [
+    {"name" : "My store",
+    "address" : "Burnaby",
+     "items" : {
+         "name" : "Chair",
+         "price" : 15.99
+     }
+     }
+]
 
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+
+@app.get('/store')
+def get_stores():
+    return {'stores' : stores}
 
 
 if __name__ == '__main__':
